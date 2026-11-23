@@ -1,0 +1,38 @@
+[
+  {
+    "id": "financial-services",
+    "name": "Financial Services",
+    "icon_url": "icons/markets/financial-services.svg",
+    "gradient": { "from": "#3b82f6", "to": "#6366f1" }
+  },
+  {
+    "id": "health-care",
+    "name": "Health Care",
+    "icon_url": "icons/markets/health-care.svg",
+    "gradient": { "from": "#10b981", "to": "#0ea5e9" }
+  },
+  {
+    "id": "commercial",
+    "name": "Commercial",
+    "icon_url": "icons/markets/commercial.svg",
+    "gradient": { "from": "#F27121", "to": "#E94057" }
+  },
+  {
+    "id": "oil-gas",
+    "name": "Oil & Gas",
+    "icon_url": "icons/markets/oil-gas.svg",
+    "gradient": { "from": "#475569", "to": "#F59E0B" }
+  },
+  {
+    "id": "telecommunications",
+    "name": "Telecommunications",
+    "icon_url": "icons/markets/telecommunications.svg",
+    "gradient": { "from": "#3EB1EA", "to": "#00388F" }
+  },
+  {
+    "id": "sled",
+    "name": "State, Local & Education",
+    "icon_url": "icons/markets/sle.svg",
+    "gradient": { "from": "#c8122c", "to": "#1a4480" }
+  }
+]

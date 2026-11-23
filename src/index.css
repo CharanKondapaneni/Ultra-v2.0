@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Brand (overridden per client at runtime) ───────────────────── */
+  --color-brand: #003087;
+  --color-brand-fg: #ffffff;
+  --color-brand-hover: color-mix(in srgb, var(--color-brand) 85%, #000);
+  --color-brand-subtle: color-mix(in srgb, var(--color-brand) 8%, var(--color-surface));
+  --color-brand-muted: color-mix(in srgb, var(--color-brand) 55%, var(--color-text-muted));
+  --color-brand-ring: color-mix(in srgb, var(--color-brand) 32%, transparent);
+  --color-accent: var(--color-brand);
+
+  /* ── Surfaces ───────────────────────────────────────────────────── */
+  --color-bg: #f4f5f7;
+  --color-surface: #ffffff;
+  --color-surface-2: #f8f9fb;
+  --color-border: #e5e7eb;
+  --color-border-subtle: #f1f3f5;
+
+  /* ── Text ───────────────────────────────────────────────────────── */
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-text-subtle: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  /* ── State ──────────────────────────────────────────────────────── */
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-critical: #dc2626;
+  --color-info: #2563eb;
+
+  --color-critical-50:  color-mix(in srgb, var(--color-critical) 6%, #fff);
+  --color-critical-100: color-mix(in srgb, var(--color-critical) 14%, #fff);
+  --color-critical-200: color-mix(in srgb, var(--color-critical) 24%, #fff);
+  --color-critical-300: color-mix(in srgb, var(--color-critical) 38%, #fff);
+  --color-critical-500: color-mix(in srgb, var(--color-critical) 82%, #fff);
+  --color-critical-600: var(--color-critical);
+  --color-critical-700: color-mix(in srgb, var(--color-critical) 85%, #000);
+  --color-critical-800: color-mix(in srgb, var(--color-critical) 68%, #000);
+  --color-critical-900: color-mix(in srgb, var(--color-critical) 50%, #000);
+
+  --color-warning-50:  color-mix(in srgb, var(--color-warning) 7%, #fff);
+  --color-warning-100: color-mix(in srgb, var(--color-warning) 14%, #fff);
+  --color-warning-200: color-mix(in srgb, var(--color-warning) 26%, #fff);
+  --color-warning-300: color-mix(in srgb, var(--color-warning) 40%, #fff);
+  --color-warning-500: color-mix(in srgb, var(--color-warning) 80%, #fff);
+  --color-warning-600: var(--color-warning);
+  --color-warning-800: color-mix(in srgb, var(--color-warning) 68%, #000);
+  --color-warning-900: color-mix(in srgb, var(--color-warning) 50%, #000);
+
+  --color-success-50:  color-mix(in srgb, var(--color-success) 7%, #fff);
+  --color-success-200: color-mix(in srgb, var(--color-success) 26%, #fff);
+  --color-success-600: var(--color-success);
+  --color-success-800: color-mix(in srgb, var(--color-success) 68%, #000);
+
+  --color-info-50:  color-mix(in srgb, var(--color-info) 7%, #fff);
+  --color-info-200: color-mix(in srgb, var(--color-info) 26%, #fff);
+  --color-info-800: color-mix(in srgb, var(--color-info) 68%, #000);
+
+  --color-category1: #7c3aed;
+  --color-category1-50:  color-mix(in srgb, var(--color-category1) 7%, #fff);
+  --color-category1-200: color-mix(in srgb, var(--color-category1) 26%, #fff);
+  --color-category1-800: color-mix(in srgb, var(--color-category1) 68%, #000);
+
+  --color-category4: #0891b2;
+  --color-category4-50:  color-mix(in srgb, var(--color-category4) 7%, #fff);
+  --color-category4-200: color-mix(in srgb, var(--color-category4) 26%, #fff);
+  --color-category4-800: color-mix(in srgb, var(--color-category4) 68%, #000);
+
+  /* ── Chart palette ──────────────────────────────────────────────── */
+  --color-chart-1: var(--color-brand);
+  --color-chart-2: #8b5cf6;
+  --color-chart-3: #10b981;
+  --color-chart-4: #f59e0b;
+  --color-chart-5: #ef4444;
+  --color-chart-6: #06b6d4;
+  --color-chart-grid: #e5e7eb;
+  --color-chart-axis: #9ca3af;
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Radius ─────────────────────────────────────────────────────── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  /* ── Motion ─────────────────────────────────────────────────────── */
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100dvh;
+}
+
+/* ── Sleek scrollbar ─────────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover {
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: transparent; border-radius: 99px; }
+
+.scrollbar-sleek { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+.scrollbar-sleek:hover { scrollbar-color: color-mix(in srgb, var(--color-brand) 22%, transparent) transparent; }

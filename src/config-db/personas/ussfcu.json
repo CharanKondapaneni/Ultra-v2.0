@@ -1,0 +1,77 @@
+[
+  {
+    "id": "ussfcu_finance",
+    "client_id": "ussfcu",
+    "name": "Fiona F.",
+    "initials": "FI",
+    "role": "Finance Team",
+    "greeting": "Fiona",
+    "default": true,
+    "nav": [
+      { "key": "ask",           "label": "Ask the AI",             "path": "/ask",            "icon_url": "icons/nav/ask.svg"              },
+      { "key": "portfolioRisk", "label": "Portfolio and Limits",   "path": "/portfolio-risk", "icon_url": "icons/nav/portfolio-risk.svg"   },
+      { "key": "scenarios",     "label": "Scenarios and Modeling", "path": "/scenarios",      "icon_url": "icons/nav/scenarios.svg"        },
+      { "key": "dataSources",   "label": "Data Sources",           "path": "/data-sources",   "icon_url": "icons/nav/data-sources.svg"     }
+    ]
+  },
+  {
+    "id": "ussfcu_evelyn",
+    "client_id": "ussfcu",
+    "name": "Evelyn Marsh",
+    "initials": "EM",
+    "role": "VP, Compliance & Public Policy",
+    "greeting": "Evelyn",
+    "default": false,
+    "nav": [
+      { "key": "ask",                "label": "Ask the AI",          "path": "/ask",                 "icon_url": "icons/nav/ask.svg"                 },
+      { "key": "complianceQuery",    "label": "Compliance Query",    "path": "/compliance-query",    "icon_url": "icons/nav/compliance-query.svg"    },
+      { "key": "disclosureCalendar", "label": "Disclosure Calendar", "path": "/disclosure-calendar", "icon_url": "icons/nav/disclosure-calendar.svg" },
+      { "key": "dataSources",        "label": "Data Sources",        "path": "/data-sources",        "icon_url": "icons/nav/data-sources.svg"        }
+    ]
+  },
+  {
+    "id": "ussfcu_ceo",
+    "client_id": "ussfcu",
+    "name": "Timothy L. Anderson",
+    "initials": "TA",
+    "role": "President & Chief Executive Officer",
+    "greeting": "Tim",
+    "default": false,
+    "nav": [
+      { "key": "ask",                 "label": "Ask the AI",           "path": "/ask",                 "icon_url": "icons/nav/ask.svg"                  },
+      { "key": "businessPerformance", "label": "Business Performance", "path": "/businessPerformance", "icon_url": "icons/nav/business-performance.svg" },
+      { "key": "prioritySignals",     "label": "Priority Signals",     "path": "/prioritySignals",     "icon_url": "icons/nav/priority-signals.svg"     },
+      { "key": "dataSources",         "label": "Data Sources",         "path": "/data-sources",        "icon_url": "icons/nav/data-sources.svg"         }
+    ]
+  },
+  {
+    "id": "ussfcu_cfo",
+    "client_id": "ussfcu",
+    "name": "Sylvia Reyes",
+    "initials": "SR",
+    "role": "Chief Financial Officer",
+    "greeting": "Sylvia",
+    "default": false,
+    "nav": [
+      { "key": "ask",               "label": "Ask the AI",          "path": "/ask",               "icon_url": "icons/nav/ask.svg"               },
+      { "key": "dataflow",          "label": "Data Flow & Lineage", "path": "/dataflow",          "icon_url": "icons/nav/dataflow.svg"          },
+      { "key": "governanceSignals", "label": "Governance Signals",  "path": "/governanceSignals", "icon_url": "icons/nav/governance-signals.svg"},
+      { "key": "dataSources",       "label": "Data Sources",        "path": "/data-sources",      "icon_url": "icons/nav/data-sources.svg"      }
+    ]
+  },
+  {
+    "id": "ussfcu_nadia",
+    "client_id": "ussfcu",
+    "name": "Nadia Hassan",
+    "initials": "NH",
+    "role": "Compliance Analyst",
+    "greeting": "Nadia",
+    "default": false,
+    "nav": [
+      { "key": "ask",                "label": "Ask the AI",          "path": "/ask",                 "icon_url": "icons/nav/ask.svg"                 },
+      { "key": "complianceQuery",    "label": "Compliance Query",    "path": "/compliance-query",    "icon_url": "icons/nav/compliance-query.svg"    },
+      { "key": "disclosureCalendar", "label": "Disclosure Calendar", "path": "/disclosure-calendar", "icon_url": "icons/nav/disclosure-calendar.svg" },
+      { "key": "dataSources",        "label": "Data Sources",        "path": "/data-sources",        "icon_url": "icons/nav/data-sources.svg"        }
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "md_comptroller_fraud",
+    "client_id": "md_comptroller",
+    "name": "Faye D.",
+    "initials": "FD",
+    "role": "Director, Fraud Detection and BI",
+    "greeting": "Faye",
+    "default": true
+  },
+  {
+    "id": "md_comptroller_comms",
+    "client_id": "md_comptroller",
+    "name": "Stella R.",
+    "initials": "SR",
+    "role": "Strategic Communications Lead",
+    "greeting": "Stella",
+    "default": false
+  },
+  {
+    "id": "md_comptroller_revops",
+    "client_id": "md_comptroller",
+    "name": "Rhea M.",
+    "initials": "RM",
+    "role": "Revenue Operations Executive",
+    "greeting": "Rhea",
+    "default": false
+  }
+]

@@ -1,0 +1,436 @@
+{
+  "_meta": {
+    "description": "Data contracts for every component in the Fiona app. Backend visualization[] items must match the schema for the given type. UI-only components (chat, layout) have no API contract.",
+    "persona": "fiona",
+    "client": "ussfcu",
+    "component_count": {
+      "total": 20,
+      "fiona_data": 8,
+      "common_data": 1,
+      "process": 2,
+      "chat": 7,
+      "common_ui": 2,
+      "api_driven": 9,
+      "ui_only": 12
+    },
+    "api_envelope": {
+      "visualization": [
+        { "type": "<ComponentName>", "variant": null, "data": "<see schema per type>" }
+      ]
+    }
+  },
+
+  "FinanceBriefingSignals": {
+    "id": 1,
+    "variant": null,
+    "_description": "Priority signal cards on the Ask page briefing header.",
+    "_required_fields": ["signals"],
+    "_validation": "signals[0].id must be a string",
+    "schema": {
+      "signals": [
+        {
+          "id": "SIG-USSFCU-FIN-001",
+          "title": "string",
+          "severity": "critical | warning",
+          "bucket": "string — category label e.g. Delinquencies",
+          "description": "string (optional)",
+          "sources": ["string"],
+          "source": "string — fallback if sources absent (optional)",
+          "metric_text": "string — key figure e.g. 1.8% vs 1.5% parameter",
+          "confidence": { "score": 94 }
+        }
+      ],
+      "visible": true,
+      "signalToChip": {
+        "SIG-USSFCU-FIN-001": "chip text fired when tile is clicked"
+      }
+    }
+  },
+
+  "FinanceKpiRow": {
+    "id": 2,
+    "variant": null,
+    "_description": "KPI stat carousel — 4 tiles per page with pagination.",
+    "_required_fields": ["stats"],
+    "_validation": "stats[0].value must be a string",
+    "schema": {
+      "visible": true,
+      "stats": [
+        {
+          "id": "net_worth",
+          "icon": "string — lucide icon name e.g. shield-alert (optional)",
+          "value": "string — pre-formatted e.g. 7.50%",
+          "label": "string — short label e.g. Net Worth Ratio",
+          "target": "string — target description (optional)",
+          "kpiTrend": "up | down | stable | mixed",
+          "positive": true,
+          "source": "string (optional)",
+          "publicProfile": true,
+          "chipText": "string — question sent to AI on click (optional)",
+          "fullName": "string (optional)",
+          "fullValue": "string (optional)",
+          "fullTarget": "string (optional)",
+          "calc": "string (optional)"
+        }
+      ]
+    }
+  },
+
+  "PortfolioLimitChart": {
+    "id": 3,
+    "variant": null,
+    "_description": "Horizontal bars showing each portfolio balance vs board risk-tolerance cap.",
+    "_required_fields": ["limits", "projection"],
+    "_validation": "limits[0].pctOfNetWorth must be a number",
+    "schema": {
+      "eyebrow": "string (optional)",
+      "limits": [
+        {
+          "id": "first_mortgage",
+          "portfolio": "string — display name",
+          "balance": 655000000,
+          "pctOfNetWorth": 570.8,
+          "cap": 600,
+          "headroom": 33500000
+        }
+      ],
+      "projection": {
+        "growthPerQuarter": 17000000,
+        "quartersToCap": 2,
+        "nearLimitPoints": 15
+      }
+    }
+  },
+
+  "DelinquencyTrend": {
+    "id": 4,
+    "variant": null,
+    "_description": "Multi-line chart of 60-day delinquency by loan segment over eight quarters.",
+    "_required_fields": ["quarters", "parameter", "segments"],
+    "_validation": "segments[0].series must be an array",
+    "schema": {
+      "eyebrow": "string (optional)",
+      "quarters": ["Q3 '24", "Q4 '24", "Q1 '25", "Q2 '25", "Q3 '25", "Q4 '25", "Q1 '26", "Q2 '26"],
+      "parameter": 1.5,
+      "driver": {
+        "vintage": "string (optional)",
+        "channel": "string (optional)"
+      },
+      "segments": [
+        {
+          "id": "hil",
+          "segment": "string — display name",
+          "series": [0.9, 0.9, 1.0, 1.0, 1.0, 1.1, 1.4, 1.8],
+          "flagged": true
+        }
+      ]
+    }
+  },
+
+  "ScenarioImpactTable": {
+    "id": 5,
+    "variant": null,
+    "_description": "Member behaviour funnel bars and delinquency segment before/after table for a modeled scenario.",
+    "_required_fields": ["scenario.lossOverTwoQuarters", "scenario.delinquencyBySegment"],
+    "_validation": "scenario.lossOverTwoQuarters must be a number AND scenario.delinquencyBySegment must be an array",
+    "schema": {
+      "eyebrow": "string (optional)",
+      "scenario": {
+        "scenario": "string — e.g. 30-day government shutdown",
+        "days": 30,
+        "membersAffectedPct": 27,
+        "depositDrawdownPct": 18,
+        "paymentDelayPct": 6,
+        "lossOverTwoQuarters": 4.2,
+        "delinquencyBySegment": [
+          {
+            "id": "hil",
+            "segment": "string — display name",
+            "before": 1.8,
+            "after": 3.2
+          }
+        ]
+      }
+    }
+  },
+
+  "CapitalLiquidityGauges": {
+    "id": 6,
+    "variant": null,
+    "_description": "Three SVG semicircle gauges showing net worth ratio, liquidity surplus, and loan-to-share before/after a scenario, plus a reconciliation table.",
+    "_required_fields": ["capitalLiquidity.netWorthBefore", "capitalLiquidity.netWorthAfter"],
+    "_validation": "capitalLiquidity.netWorthBefore must be a number",
+    "schema": {
+      "eyebrow": "string (optional)",
+      "capitalLiquidity": {
+        "netWorthBefore": 7.5,
+        "netWorthAfter": 7.2,
+        "earlyWarning": 7.0,
+        "liquiditySurplusBefore": 68000000,
+        "liquiditySurplus": 35000000,
+        "loanToShareBefore": 84,
+        "loanToShareAfter": 86,
+        "trigger": 88,
+        "reconciliation": [
+          {
+            "id": "core",
+            "layer": "string — e.g. Core",
+            "system": "string — e.g. Core banking system",
+            "netWorth": 114750000,
+            "ratio": 7.5
+          }
+        ]
+      }
+    }
+  },
+
+  "PlaybookActionTable": {
+    "id": 7,
+    "variant": null,
+    "_description": "Severity scale strip and board playbook action table, with the modeled scenario's band highlighted.",
+    "_required_fields": ["bands", "playbookTitle", "scenario"],
+    "_validation": "bands must be an array",
+    "schema": {
+      "eyebrow": "string (optional)",
+      "playbookTitle": "string — e.g. Board shutdown playbook · pre-set actions by severity",
+      "scenario": {
+        "days": 30,
+        "scenario": "string — e.g. 30-day shutdown"
+      },
+      "bands": [
+        {
+          "band": "string — severity tier e.g. Short shutdown",
+          "range": "string — e.g. 1–14 days",
+          "recommended": true,
+          "actions": ["string — action description"]
+        }
+      ]
+    }
+  },
+
+  "DataSourcesGrid": {
+    "id": 8,
+    "variant": null,
+    "_description": "Grid of connected data source cards with status, freshness, and record count.",
+    "_required_fields": ["sources"],
+    "_validation": "sources must be an array",
+    "schema": {
+      "heading": "string (optional)",
+      "subtitle": "string (optional)",
+      "sources": [
+        {
+          "id": "core_banking",
+          "name": "string — display name",
+          "description": "string (optional)",
+          "icon": "string — lucide icon name e.g. database (optional)",
+          "status": "connected | partial",
+          "statusLabel": "string (optional)",
+          "lastSync": "string — ISO date or relative e.g. 2026-11-02 (optional)",
+          "recordCount": 52500,
+          "freshness": "string — e.g. Daily overnight (optional)",
+          "vendorAgnostic": true
+        }
+      ]
+    }
+  },
+
+  "CurrentStateDiagram": {
+    "id": 9,
+    "variant": null,
+    "_description": "Process flow diagram showing current-state steps with gap highlights and AI intervention callouts.",
+    "_required_fields": ["title", "steps", "interventions"],
+    "_validation": "none",
+    "schema": {
+      "title": "string",
+      "subtitle": "string (optional)",
+      "illustrative": true,
+      "cycleTimeNote": "string (optional)",
+      "gapSummary": "string (optional)",
+      "steps": [
+        {
+          "id": "A",
+          "label": "string — step description",
+          "detail": "string — cycle time or next step (optional)",
+          "state": "normal | gap",
+          "system": "string — system involved (optional)",
+          "isDecision": false
+        }
+      ],
+      "interventions": [
+        {
+          "id": "INT-1",
+          "stepId": "A",
+          "currentStep": "string (optional)",
+          "intervention": "string — what the AI does instead",
+          "capability": "string — capability name (optional)",
+          "impact": "string — time/effort saved (optional)"
+        }
+      ]
+    }
+  },
+
+  "JourneyMap": {
+    "id": 10,
+    "variant": null,
+    "_description": "Horizontal journey map with emotion scores, pain points, and AI opportunity callouts per phase.",
+    "_required_fields": ["scenario", "phases"],
+    "_validation": "none",
+    "schema": {
+      "scenario": "string",
+      "timeframe": "string",
+      "baselineSatisfaction": 2.8,
+      "baselineScale": 5,
+      "baselineNote": "string",
+      "illustrative": true,
+      "phases": [
+        {
+          "id": "monitor",
+          "index": 1,
+          "name": "string — phase name",
+          "emotion": 3,
+          "emotionLabel": "string",
+          "touchpoints": ["string"],
+          "action": "string",
+          "thought": "string — user quote",
+          "painPoints": ["string"],
+          "opportunity": "string — AI opportunity",
+          "momentOfTruth": false,
+          "momentLabel": "string (optional)",
+          "demoStep": "string (optional)",
+          "flowKey": "string (optional)",
+          "futureEmotion": 5
+        }
+      ],
+      "futureLabel": "string (optional)",
+      "futureNote": "string (optional)",
+      "traceability": [
+        {
+          "phase": "string",
+          "painPoint": "string",
+          "signal": "string",
+          "signalId": "string (optional)",
+          "demoStep": "string (optional)"
+        }
+      ]
+    }
+  },
+
+  "ChatMessage": {
+    "id": 11,
+    "variant": null,
+    "_description": "Single message bubble in the chat thread.",
+    "_validation": "none",
+    "schema": {
+      "message": {
+        "id": "string",
+        "role": "user | assistant",
+        "text": "string — supports **bold** and [Section] markdown",
+        "sources": ["string — data source badges (optional)"]
+      },
+      "inlineComponents": "ReactNode[] — visualization components rendered below the message (optional)",
+      "personaInitials": "string — e.g. FF (optional)"
+    }
+  },
+
+  "ChatInput": {
+    "id": 12,
+    "variant": null,
+    "_description": "Gradient-border text input with suggestions dropdown.",
+    "_validation": "none",
+    "schema": {
+      "onSend": "function(text: string) — called on submit",
+      "disabled": "boolean (optional)",
+      "placeholder": "string (optional)",
+      "suggestions": ["string — shown in typeahead dropdown (optional)"]
+    }
+  },
+
+  "TypingIndicator": {
+    "id": 13,
+    "variant": null,
+    "_description": "Animated three-dot typing indicator shown while AI is responding.",
+    "_validation": "none",
+    "schema": {}
+  },
+
+  "FinanceDataPosturePanel": {
+    "id": 14,
+    "variant": null,
+    "_description": "Self-contained panel showing real public backdrop facts, illustrative data notice, CurrentStateDiagram, and JourneyMap. Reads from static constants.",
+    "_validation": "none",
+    "schema": {}
+  },
+
+  "ChatInterface": {
+    "id": 15,
+    "variant": null,
+    "_description": "Wrapper component that owns all chat state (messages, typing, chips, greeting). Each persona's AskPage renders a thin wrapper passing persona config.",
+    "_validation": "none",
+    "schema": {
+      "persona": "UssfcuPersona — persona key e.g. 'fiona'",
+      "greeting": "string — persona first name shown in greeting header e.g. 'Fiona'",
+      "initials": "string — 2-char avatar initials e.g. 'FF'",
+      "placeholder": "string — input placeholder text (optional)",
+      "briefingSlot": "ReactNode — initial-view briefing content rendered above the AI Conversation divider (optional)",
+      "inlineMap": "Record<string, ReactNode[]> — visualization components keyed by message id (optional)"
+    }
+  },
+
+  "FollowUpChips": {
+    "id": 16,
+    "variant": null,
+    "_description": "Small follow-up chip pills rendered above the chat input. Chips come from the API response suggested_chips only — no static fallback. The recommended chip is highlighted in brand color.",
+    "_validation": "none",
+    "schema": {
+      "chips": "string[] — chip labels to display",
+      "recommendedChip": "string | null — chip text to highlight as recommended (optional)",
+      "onChipClick": "function(chip: string) — called when a chip is clicked",
+      "isPanel": "boolean — enables scrollable max-height for panel contexts (optional)",
+      "compactOnMobile": "boolean — enables scrollable max-height on mobile only (optional)"
+    }
+  },
+
+  "SourceBadge": {
+    "id": 17,
+    "variant": null,
+    "_description": "Inline badge pill showing a data source name with a color-coded dot. Known sources map to specific dot colors; unknown sources fall back to a neutral dot.",
+    "_validation": "none",
+    "schema": {
+      "source": "string — data source display name e.g. 'Core Banking System' (optional)"
+    }
+  },
+
+  "PageError": {
+    "id": 18,
+    "variant": null,
+    "_description": "Full-height centered error state with an alert icon, message text, and optional retry button.",
+    "_validation": "none",
+    "schema": {
+      "message": "string — error description shown below the heading (optional, has default)",
+      "onRetry": "function() — called when the Retry button is clicked; hides the button when omitted (optional)"
+    }
+  },
+
+  "MaximizablePanel": {
+    "id": 19,
+    "variant": null,
+    "_description": "Panel wrapper that can expand to a full-screen overlay via a MaximizeButton trigger. The original inline slot shows a placeholder while maximized. Closes on Escape or the close button. Exports MaximizeButton for use inside the panel header.",
+    "_validation": "none",
+    "schema": {
+      "className": "string — additional classes applied to the inline and maximized panel shell (optional)",
+      "children": "ReactNode | ((state: { maximized: boolean }) => ReactNode) — panel content; function form receives maximized state (optional)",
+      "label": "string — human-readable panel name shown in the placeholder and aria-label (optional, default 'Panel')",
+      "shell": "string — Tailwind classes for the panel shell; overrides the default rounded-2xl border style (optional)"
+    }
+  },
+
+  "MessageFeedback": {
+    "id": 20,
+    "variant": null,
+    "_description": "Thumbs-up / thumbs-down feedback widget rendered below each AI message. Positive feedback logs immediately; negative opens a comment modal. Result persists to sessionStorage keyed by messageId.",
+    "_validation": "none",
+    "schema": {
+      "messageId": "string — unique id of the message this feedback belongs to"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "esfcu_ceo",
+    "client_id": "esfcu",
+    "name": "Girado Smith",
+    "initials": "GS",
+    "role": "President & Chief Executive Officer",
+    "greeting": "Girado",
+    "default": true
+  },
+  {
+    "id": "esfcu_cro",
+    "client_id": "esfcu",
+    "name": "Renata Alvarez",
+    "initials": "RA",
+    "role": "Chief Risk Officer",
+    "greeting": "Renata",
+    "default": false,
+    "illustrative": true
+  }
+]

@@ -1,0 +1,160 @@
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ChevronLeft, ChevronRight, ArrowUpRight, ArrowDownRight, ArrowRight, ArrowUpDown } from 'lucide-react'
+
+export interface StatItem {
+  id: string
+  icon?: string
+  value: string
+  label: string
+  target?: string
+  kpiTrend: 'up' | 'down' | 'stable' | 'mixed' | string
+  positive: boolean
+  source?: string
+  publicProfile?: boolean
+  chipText?: string
+  fullName?: string
+  fullValue?: string
+  fullTarget?: string
+  calc?: string
+}
+
+export interface FinanceKpiRowData {
+  kpis?: StatItem[]
+  stats?: StatItem[]
+  visible?: boolean
+}
+
+const PER_PAGE = 4
+
+const TREND: Record<string, { icon: React.ElementType; label: string }> = {
+  up:     { icon: ArrowUpRight,   label: 'Up'     },
+  down:   { icon: ArrowDownRight, label: 'Down'   },
+  stable: { icon: ArrowRight,     label: 'Stable' },
+  mixed:  { icon: ArrowUpDown,    label: 'Mixed'  },
+}
+
+function StatCard({ stat, onClick }: { stat: StatItem; onClick?: (chip: string) => void }) {
+  const clickable = Boolean(stat.chipText)
+  const trend = TREND[stat.kpiTrend] ?? TREND.stable
+  const TrendIcon = trend.icon
+
+  return (
+    <button
+      type="button"
+      disabled={!clickable}
+      onClick={clickable ? () => onClick?.(stat.chipText!) : undefined}
+      title={[stat.fullName && `${stat.fullName}: ${stat.fullValue}`, stat.fullTarget && `Target: ${stat.fullTarget}`, stat.calc && `Calc: ${stat.calc}`].filter(Boolean).join('\n')}
+      className={`min-w-0 rounded-lg px-3 py-2.5 bg-surface border border-border-subtle/80 text-left w-full ${
+        clickable
+          ? 'cursor-pointer hover:border-brand/15 hover:shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40'
+          : 'cursor-default'
+      }`}
+    >
+      <div className="flex flex-col gap-[3px]">
+        <span className="flex items-center gap-1.5">
+          <span className="text-[14px] font-bold text-text leading-none whitespace-nowrap tabular-nums">
+            {stat.value}
+          </span>
+          <span className="text-text-subtle" aria-label={`Trend: ${trend.label}`}>
+            <TrendIcon className="w-3 h-3" />
+          </span>
+        </span>
+
+        <span className="text-[10px] text-text-subtle font-medium leading-tight line-clamp-2">
+          {stat.label}
+        </span>
+
+        {stat.target && (
+          <span className={`text-[9.5px] font-semibold leading-tight line-clamp-2 ${stat.positive ? 'text-success-600' : 'text-warning-600'}`}>
+            {stat.target}
+          </span>
+        )}
+
+        {stat.source && (
+          <span className="flex flex-wrap items-center gap-x-1 gap-y-0.5 text-[9px] leading-tight text-text-subtle">
+            <span>{stat.source}</span>
+            {stat.publicProfile !== undefined && (
+              <span className={`rounded-full border px-1 py-[0.5px] text-[7.5px] font-bold uppercase tracking-wide ${
+                stat.publicProfile
+                  ? 'border-brand/20 bg-brand/5 text-brand'
+                  : 'border-border bg-surface text-text-subtle'
+              }`}>
+                {stat.publicProfile ? 'Public' : 'Illustrative'}
+              </span>
+            )}
+          </span>
+        )}
+      </div>
+    </button>
+  )
+}
+
+export default function FinanceKpiRow({ data, onStatClick }: { data: FinanceKpiRowData; onStatClick?: (chip: string) => void }) {
+  const { visible = true } = data
+  const stats = data.kpis ?? data.stats ?? []
+  const [page, setPage] = useState(0)
+  if (!stats.length || !visible) return null
+
+  const totalPages = Math.ceil(stats.length / PER_PAGE)
+  const visibleStats = stats.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
+  const canPrev = page > 0
+  const canNext = page < totalPages - 1
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, height: 'auto' }}
+        animate={{ opacity: 1, height: 'auto' }}
+        exit={{ opacity: 0, height: 0, marginBottom: 0, overflow: 'hidden' }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className="mb-3"
+      >
+        {totalPages > 1 && (
+          <div className="flex items-center justify-end gap-1.5 mb-1.5">
+            <span className="text-[10px] text-text-subtle font-medium tabular-nums">
+              {page + 1}/{totalPages}
+            </span>
+            <button
+              type="button"
+              onClick={() => canPrev && setPage(p => p - 1)}
+              disabled={!canPrev}
+              aria-label="Previous KPIs"
+              className={`w-5 h-5 rounded flex items-center justify-center transition-colors ${
+                canPrev ? 'text-text-muted hover:text-brand cursor-pointer' : 'text-text-subtle cursor-not-allowed'
+              }`}
+            >
+              <ChevronLeft className="w-3.5 h-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => canNext && setPage(p => p + 1)}
+              disabled={!canNext}
+              aria-label="Next KPIs"
+              className={`w-5 h-5 rounded flex items-center justify-center transition-colors ${
+                canNext ? 'text-text-muted hover:text-brand cursor-pointer' : 'text-text-subtle cursor-not-allowed'
+              }`}
+            >
+              <ChevronRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
+
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={page}
+            initial={{ opacity: 0, x: 8 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -8 }}
+            transition={{ duration: 0.18 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-2"
+          >
+            {visibleStats.map(stat => (
+              <StatCard key={stat.id} stat={stat} onClick={onStatClick} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+    </AnimatePresence>
+  )
+}

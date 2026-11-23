@@ -1,0 +1,20 @@
+[
+  {
+    "id": "newfold_director",
+    "client_id": "newfold_digital",
+    "name": "Marisol Castellano",
+    "initials": "MC",
+    "role": "Director, Global Customer Care",
+    "greeting": "Marisol",
+    "default": true
+  },
+  {
+    "id": "newfold_ops",
+    "client_id": "newfold_digital",
+    "name": "Sofia Reyes",
+    "initials": "SR",
+    "role": "Contact Center Operations Manager",
+    "greeting": "Sofia",
+    "default": false
+  }
+]

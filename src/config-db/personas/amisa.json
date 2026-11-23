@@ -1,0 +1,20 @@
+[
+  {
+    "id": "amisa_director",
+    "client_id": "amisa",
+    "name": "Dr. Dereck Rhoads",
+    "initials": "DR",
+    "role": "Executive Director",
+    "greeting": "Dereck",
+    "default": true
+  },
+  {
+    "id": "amisa_hr",
+    "client_id": "amisa",
+    "name": "Ana Lucía Restrepo",
+    "initials": "AR",
+    "role": "HR Director — member school",
+    "greeting": "Ana Lucía",
+    "default": false
+  }
+]

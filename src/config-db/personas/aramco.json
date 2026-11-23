@@ -1,0 +1,38 @@
+[
+  {
+    "id": "aramco_hse_gm",
+    "client_id": "aramco",
+    "name": "Gina \"GM\"",
+    "initials": "GM",
+    "role": "General Manager, Health, Safety and Environment",
+    "greeting": "Gina",
+    "default": true
+  },
+  {
+    "id": "aramco_shift_supervisor",
+    "client_id": "aramco",
+    "name": "Sally \"Shift Super\"",
+    "initials": "SS",
+    "role": "Shift Supervisor, Units 2 and 3",
+    "greeting": "Sally",
+    "default": false
+  },
+  {
+    "id": "aramco_permit_issuer",
+    "client_id": "aramco",
+    "name": "Penny \"Permit\"",
+    "initials": "PP",
+    "role": "Permit Issuing Authority, Turnaround",
+    "greeting": "Penny",
+    "default": false
+  },
+  {
+    "id": "aramco_complex_manager",
+    "client_id": "aramco",
+    "name": "Connor \"Complex\"",
+    "initials": "CC",
+    "role": "Complex Manager, Refining and Petrochemical Site",
+    "greeting": "Connor",
+    "default": false
+  }
+]

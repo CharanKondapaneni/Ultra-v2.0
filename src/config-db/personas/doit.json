@@ -1,0 +1,29 @@
+[
+  {
+    "id": "doit_admin",
+    "client_id": "doit",
+    "name": "Marcus Johnson",
+    "initials": "MJ",
+    "role": "Survey Administrator",
+    "greeting": "Marcus",
+    "default": true
+  },
+  {
+    "id": "doit_author",
+    "client_id": "doit",
+    "name": "Sarah Chen",
+    "initials": "SC",
+    "role": "Survey Author",
+    "greeting": "Sarah",
+    "default": false
+  },
+  {
+    "id": "doit_resident",
+    "client_id": "doit",
+    "name": "Maryland Resident",
+    "initials": "MR",
+    "role": "Resident — anonymous",
+    "greeting": "there",
+    "default": false
+  }
+]

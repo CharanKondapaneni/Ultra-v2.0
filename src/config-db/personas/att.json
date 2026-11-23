@@ -1,0 +1,20 @@
+[
+  {
+    "id": "att_billing_operator",
+    "client_id": "att",
+    "name": "Jordan Hayes",
+    "initials": "JH",
+    "role": "Billing Operations Analyst",
+    "greeting": "Jordan",
+    "default": true
+  },
+  {
+    "id": "att_platform_admin",
+    "client_id": "att",
+    "name": "Morgan Lee",
+    "initials": "ML",
+    "role": "Platform Administrator",
+    "greeting": "Morgan",
+    "default": false
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "penfed_maya",
+    "client_id": "penfed",
+    "name": "Maya J",
+    "initials": "MJ",
+    "role": "Operations & Analytics",
+    "greeting": "Maya",
+    "default": true,
+    "nav": [
+      { "key": "ask",           "label": "Ask the AI",             "path": "/ask",            "icon_url": "icons/nav/ask.svg"              },
+      { "key": "memberJourney", "label": "Member Journey", "path": "/member-journey", "icon_url": "icons/nav/member-journey.svg" },
+      { "key": "riskSignals",   "label": "Risk Signals",   "path": "/risk-signals",   "icon_url": "icons/nav/risk-signals.svg"  },
+      { "key": "dataSources",   "label": "Data Sources",           "path": "/data-sources",   "icon_url": "icons/nav/data-sources.svg"     }
+    ]
+  },
+  {
+    "id": "penfed_priya",
+    "client_id": "penfed",
+    "name": "Priya K",
+    "initials": "PK",
+    "role": "CX Transformation",
+    "greeting": "Priya",
+    "default": false,
+    "nav": [
+      { "key": "ask",           "label": "Ask the AI",             "path": "/ask",            "icon_url": "icons/nav/ask.svg"              },
+      { "key": "memberJourney", "label": "Member Journey", "path": "/member-journey", "icon_url": "icons/nav/member-journey.svg" },
+      { "key": "riskSignals",   "label": "Risk Signals",   "path": "/risk-signals",   "icon_url": "icons/nav/risk-signals.svg"  },
+      { "key": "dataSources",   "label": "Data Sources",           "path": "/data-sources",   "icon_url": "icons/nav/data-sources.svg"     }
+    ]
+  },
+  {
+    "id": "penfed_derek",
+    "client_id": "penfed",
+    "name": "Derek T",
+    "initials": "DT",
+    "role": "Mmeber Retention",
+    "greeting": "Derek",
+    "default": false,
+    "nav": [
+      { "key": "ask",           "label": "Ask the AI",             "path": "/ask",            "icon_url": "icons/nav/ask.svg"              },
+      { "key": "memberJourney", "label": "Member Journey", "path": "/member-journey", "icon_url": "icons/nav/member-journey.svg" },
+      { "key": "riskSignals",   "label": "Risk Signals",   "path": "/risk-signals",   "icon_url": "icons/nav/risk-signals.svg"  },
+      { "key": "dataSources",   "label": "Data Sources",           "path": "/data-sources",   "icon_url": "icons/nav/data-sources.svg"     }
+    ]
+  },
+  {
+    "id": "penfed_james",
+    "client_id": "penfed",
+    "name": "James R",
+    "initials": "JR",
+    "role": "Risk & Fraud",
+    "greeting": "James",
+    "default": false,
+    "nav": [
+      { "key": "ask",           "label": "Ask the AI",             "path": "/ask",            "icon_url": "icons/nav/ask.svg"              },
+      { "key": "memberJourney", "label": "Member Journey", "path": "/member-journey", "icon_url": "icons/nav/member-journey.svg" },
+      { "key": "riskSignals",   "label": "Risk Signals",   "path": "/risk-signals",   "icon_url": "icons/nav/risk-signals.svg"  },
+      { "key": "dataSources",   "label": "Data Sources",           "path": "/data-sources",   "icon_url": "icons/nav/data-sources.svg"     }
+    ]
+  },
+  {
+    "id": "penfed_sowmya",
+    "client_id": "penfed",
+    "name": "Sowmya Ha",
+    "initials": "SH",
+    "role": "Capital Markets Risk",
+    "greeting": "Sowmya",
+    "default": false,
+    "nav": [
+      { "key": "ask",           "label": "Ask the AI",             "path": "/ask",            "icon_url": "icons/nav/ask.svg"              },
+      { "key": "memberJourney", "label": "Member Journey", "path": "/member-journey", "icon_url": "icons/nav/member-journey.svg" },
+      { "key": "riskSignals",   "label": "Risk Signals",   "path": "/risk-signals",   "icon_url": "icons/nav/risk-signals.svg"  },
+      { "key": "dataSources",   "label": "Data Sources",           "path": "/data-sources",   "icon_url": "icons/nav/data-sources.svg"     }
+    ]
+  }
+]

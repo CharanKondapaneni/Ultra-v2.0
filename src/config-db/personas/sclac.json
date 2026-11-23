@@ -1,0 +1,29 @@
+[
+  {
+    "id": "sclac_jeff",
+    "client_id": "sclac",
+    "name": "Jeff",
+    "initials": "JF",
+    "role": "Court Executive Officer",
+    "greeting": "Jeff",
+    "default": true
+  },
+  {
+    "id": "sclac_nancy",
+    "client_id": "sclac",
+    "name": "Nancy",
+    "initials": "NC",
+    "role": "Assistant Court Executive Officer",
+    "greeting": "Nancy",
+    "default": false
+  },
+  {
+    "id": "sclac_mina",
+    "client_id": "sclac",
+    "name": "Mina",
+    "initials": "MI",
+    "role": "Data & Analytics Manager",
+    "greeting": "Mina",
+    "default": false
+  }
+]

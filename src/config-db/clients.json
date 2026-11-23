@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ussfcu",
+    "market_id": "financial-services",
+    "name": "United States Senate Federal Credit Union",
+    "name_lines": ["United States Senate", "Federal Credit Union"],
+    "tagline": "AI Platform",
+    "logo_url": "logos/ussfcu-seal.png",
+    "primary_color": "#003087",
+    "slug": "ussfcu"
+  },
+  {
+    "id": "penfed",
+    "market_id": "financial-services",
+    "name": "Pentagon Federal Credit Union",
+    "name_lines": ["Pentagon Federal", "Credit Union"],
+    "tagline": "AI Platform",
+    "logo_url": "logos/penfed-logo.svg",
+    "primary_color": "#003087",
+    "slug": "penfed"
+  },
+  {
+    "id": "esfcu",
+    "market_id": "financial-services",
+    "name": "Educational Systems Federal Credit Union",
+    "tagline": "Executive Intelligence",
+    "logo_url": "logos/esfcu-logo.svg",
+    "primary_color": "#003768",
+    "slug": "esfcu"
+  },
+  {
+    "id": "nfcu",
+    "market_id": "financial-services",
+    "name": "Navy Federal Credit Union",
+    "tagline": "Workforce AI Platform",
+    "logo_url": "logos/nfcu-logo.svg",
+    "primary_color": "#003087",
+    "slug": "nfcu"
+  },
+  {
+    "id": "financial_services",
+    "market_id": "financial-services",
+    "name": "Financial Services",
+    "tagline": "AI Platform",
+    "logo_url": "logos/fs-logo.svg",
+    "primary_color": "#003087",
+    "slug": "fs"
+  },
+  {
+    "id": "newfold_digital",
+    "market_id": "commercial",
+    "name": "Newfold Digital",
+    "tagline": "Customer Care Intelligence",
+    "logo_url": "logos/newfold-icon.svg",
+    "primary_color": "#F27121",
+    "slug": "newfold"
+  },
+  {
+    "id": "aramco",
+    "market_id": "oil-gas",
+    "name": "Aramco",
+    "tagline": "HSE Intelligence",
+    "logo_url": "logos/aramco-emblem.png",
+    "primary_color": "#0071CE",
+    "slug": "aramco"
+  },
+  {
+    "id": "att",
+    "market_id": "telecommunications",
+    "name": "AT&T",
+    "tagline": "AI Billing Workbench",
+    "logo_url": "logos/att-globe.png",
+    "primary_color": "#0568AE",
+    "slug": "att"
+  },
+  {
+    "id": "doit",
+    "market_id": "sled",
+    "name": "Maryland DoIT",
+    "tagline": "Voice of the Resident",
+    "logo_url": "logos/maryland-doit-mark.svg",
+    "primary_color": "#1a4480",
+    "slug": "doit"
+  },
+  {
+    "id": "amisa",
+    "market_id": "sled",
+    "name": "AMISA",
+    "tagline": "Better Together",
+    "logo_url": "logos/amisa-mark.png",
+    "primary_color": "#DB3D38",
+    "slug": "amisa"
+  },
+  {
+    "id": "md_comptroller",
+    "market_id": "sled",
+    "name": "Comptroller of Maryland",
+    "tagline": "Trusted Revenue Data",
+    "logo_url": "logos/md-comptroller-mark.svg",
+    "primary_color": "#0B5563",
+    "slug": "comptroller"
+  },
+  {
+    "id": "sclac",
+    "market_id": "sled",
+    "name": "Superior Court of Los Angeles County",
+    "tagline": "Ask the KPI",
+    "logo_url": "logos/sclac-seal.png",
+    "primary_color": "#005EA2",
+    "slug": "sclac"
+  }
+]
