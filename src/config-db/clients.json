@@ -108,5 +108,15 @@
     "logo_url": "logos/sclac-seal.png",
     "primary_color": "#005EA2",
     "slug": "sclac"
+  },
+  {
+    "id": "riverside_health",
+    "market_id": "health-care",
+    "name": "Riverside Health System",
+    "name_lines": ["Riverside", "Health System"],
+    "tagline": "Care Intelligence Platform",
+    "logo_url": "logos/fs-logo.svg",
+    "primary_color": "#0F766E",
+    "slug": "rshs"
   }
 ]

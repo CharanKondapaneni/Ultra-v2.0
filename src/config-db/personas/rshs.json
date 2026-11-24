@@ -1,0 +1,15 @@
+[
+  {
+    "id": "riverside_health_dana",
+    "client_id": "riverside_health",
+    "name": "Dana W.",
+    "initials": "DW",
+    "role": "Care Operations",
+    "greeting": "Dana",
+    "default": true,
+    "nav": [
+      { "key": "ask",         "label": "Ask the AI",   "path": "/ask",          "icon_url": "icons/nav/ask.svg"          },
+      { "key": "dataSources", "label": "Data Sources", "path": "/data-sources", "icon_url": "icons/nav/data-sources.svg" }
+    ]
+  }
+]

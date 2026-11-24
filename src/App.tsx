@@ -10,7 +10,7 @@ import ClientLoginScreen from '@/screens/ClientLoginScreen'
 import { ULTRA_SLUG, CLIENT_ID } from '@/auth/access'
 import { ActivePersonaProvider, useActivePersona } from '@/shell/ActivePersonaContext'
 import { resolvePersona } from '@/utils/resolvePersona'
-import type { PersonaConfig } from '@/types/config'
+
 
 
 function UltraGateRoute() {

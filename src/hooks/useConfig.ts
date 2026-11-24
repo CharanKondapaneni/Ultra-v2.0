@@ -1,5 +1,5 @@
 import { useSession } from '@/auth/SessionContext'
-import { resolveAsset, type Client } from '@/config-db'
+import { resolveAsset, getClient, type Client } from '@/config-db'
 import { CLIENT_ID } from '@/auth/access'
 import type { PersonaConfig, ClientConfig } from '@/types/config'
 
@@ -18,7 +18,7 @@ export function useConfig(): AppConfig {
   const { scopedClientId, sessionPersona } = useSession()
   const clientId = scopedClientId ?? CLIENT_ID
 
-  const rawClient = readSessionStorage<Client>('session_client')
+  const rawClient = readSessionStorage<Client>('session_client') ?? getClient(clientId)
 
   const client: ClientConfig = {
     id: clientId,

@@ -25,6 +25,16 @@ import NadiaComplianceQueryPage      from './clients/ussfcu/nadia/ComplianceQuer
 import NadiaDisclosureCalendarPage   from './clients/ussfcu/nadia/DisclosureCalendarPage'
 import NadiaDataSourcesPage          from './clients/ussfcu/nadia/DataSourcesPage'
 
+// rshs pages
+import DanaAskPage          from './clients/rshs/dana/AskPage'
+import DanaDataSourcesPage  from './clients/rshs/dana/DataSourcesPage'
+
+// newfold-digital pages
+import MarisolDataSourcesPage   from './clients/newfold-digital/marisol/DataSourcesPage'
+import MarisolQualitySignalsPage from './clients/newfold-digital/marisol/QualitySignalsPage'
+import SofiaDataSourcesPage     from './clients/newfold-digital/sofia/DataSourcesPage'
+import SofiaQualitySignalsPage  from './clients/newfold-digital/sofia/QualitySignalsPage'
+
 // nfcu pages — add imports here as pages are built with /build-page
 
 // penfed pages - add imports here as pages are built with /build-page
@@ -86,6 +96,24 @@ const registry: PageRegistry = {
       '/compliance-query':    NadiaComplianceQueryPage,
       '/disclosure-calendar': NadiaDisclosureCalendarPage,
       '/data-sources':        NadiaDataSourcesPage,
+    },
+  },
+
+  riverside_health: {
+    dana: {
+      '/ask':          DanaAskPage,
+      '/data-sources': DanaDataSourcesPage,
+    },
+  },
+
+  newfold_digital: {
+    marisol: {
+      '/data-sources':    MarisolDataSourcesPage,
+      '/quality-signals': MarisolQualitySignalsPage,
+    },
+    sofia: {
+      '/data-sources':    SofiaDataSourcesPage,
+      '/quality-signals': SofiaQualitySignalsPage,
     },
   },
 

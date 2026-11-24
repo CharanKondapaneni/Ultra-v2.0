@@ -11,7 +11,9 @@ const OVERRIDES: Record<string, string> = {
   ussfcu_ceo:     'timothy',
   ussfcu_cfo:     'sylvia',
   ussfcu_nadia:   'nadia',
-  nfcu_platform_admin: 'platform-admin',
+  nfcu_platform_admin:  'platform-admin',
+  newfold_director:     'marisol',
+  newfold_ops:          'sofia',
 }
 
 export function resolvePersona(id: string): string {
