@@ -15,6 +15,7 @@ dist-ssr
 # Excluded from commits
 ontology-builder/
 *.md
+!.claude/**/*.md
 UltraMaster.zip
 __pycache__/
 *.pyc
