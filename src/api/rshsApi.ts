@@ -74,8 +74,8 @@ export const fetchKpis = (_persona?: RshsPersona) =>
   post('/api/kpis', { category: [{ component: 'KpiCarousel' }] })
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const fetchAsk = (_persona: RshsPersona | string, query: string, conversationHistory: unknown[] = []) =>
-  post('/api/ask', { query, conversation_history: conversationHistory, genui_component_ids: [] })
+export const fetchAsk = (_persona: RshsPersona | string, query: string, conversationHistory: unknown[] = [], sessionId?: string) =>
+  post('/api/ask', { query, conversation_history: conversationHistory, genui_component_ids: [], session_id: sessionId })
 
 export const fetchGeneric = <T = unknown>(_persona: RshsPersona | string, category: CategoryItem[], options: { filters?: Record<string, unknown> } = {}) =>
   post<T>('/api/generic', { category: category.map(c => ({ ...c, variant: c.variant ?? null })), filters: options.filters ?? {} })

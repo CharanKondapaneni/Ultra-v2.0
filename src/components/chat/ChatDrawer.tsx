@@ -24,6 +24,7 @@ export default function ChatDrawer({ isOpen, onClose, persona, chips = [], place
   const historyRef = useRef<{ role: 'user' | 'assistant'; content: string }[]>([])
   const sentRef = useRef<string | null>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
+  const sessionIdRef = useRef<string>(crypto.randomUUID())
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
@@ -39,12 +40,13 @@ export default function ChatDrawer({ isOpen, onClose, persona, chips = [], place
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, initialQuery])
 
-  // Clear thread on close
+  // Clear thread on close and generate a fresh session for next open
   useEffect(() => {
     if (!isOpen) {
       setMessages([])
       setIsTyping(false)
       historyRef.current = []
+      sessionIdRef.current = crypto.randomUUID()
     }
   }, [isOpen])
 
@@ -55,7 +57,7 @@ export default function ChatDrawer({ isOpen, onClose, persona, chips = [], place
     historyRef.current.push({ role: 'user', content: query })
 
     try {
-      const res = await fetchAsk(persona, query, historyRef.current.slice(0, -1))
+      const res = await fetchAsk(persona, query, historyRef.current.slice(0, -1), sessionIdRef.current)
       const aiText = res.ai_message ?? 'Here is what I found.'
       const aiMsg: Message = {
         id: nextId(),

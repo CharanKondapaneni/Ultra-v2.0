@@ -8,7 +8,7 @@ import FollowUpChips from './FollowUpChips'
 import type { ApiResponse } from '@/api/types'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type FetchAskFn = (persona: any, query: string, history?: unknown[]) => Promise<ApiResponse<unknown>>
+type FetchAskFn = (persona: any, query: string, history?: unknown[], sessionId?: string) => Promise<ApiResponse<unknown>>
 
 export interface ChatInterfaceProps {
   persona: string
@@ -49,6 +49,7 @@ export default function ChatInterface({
   const bottomRef = useRef<HTMLDivElement>(null)
   const historyRef = useRef<{ role: 'user' | 'assistant'; content: string }[]>([])
   const inflightGreeting = useRef(false)
+  const sessionIdRef = useRef<string>(crypto.randomUUID())
 
   const isInitialView = messages.length === 0 && !isTyping
 
@@ -59,7 +60,7 @@ export default function ChatInterface({
   useEffect(() => {
     if (inflightGreeting.current) return
     inflightGreeting.current = true
-    fetchAsk(persona, 'greeting')
+    fetchAsk(persona, 'greeting', [], sessionIdRef.current)
       .then(res => {
         if (res.ai_message) {
           const msg: Message = {
@@ -82,6 +83,7 @@ export default function ChatInterface({
     setIsTyping(false)
     setChips([])
     historyRef.current = []
+    sessionIdRef.current = crypto.randomUUID()
   }, [])
 
   const handleSend = useCallback(async (query: string) => {
@@ -93,7 +95,7 @@ export default function ChatInterface({
     historyRef.current.push({ role: 'user', content: query })
 
     try {
-      const res = await fetchAsk(persona, query, historyRef.current.slice(0, -1))
+      const res = await fetchAsk(persona, query, historyRef.current.slice(0, -1), sessionIdRef.current)
       const aiText = res.ai_message ?? 'Here is what I found.'
       const aiId = nextId()
 
