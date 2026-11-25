@@ -1,38 +1,12 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, ReferenceLine, ScatterChart, Scatter, ZAxis, Cell } from 'recharts'
+import ChartTooltip from '@/components/ChartTooltip'
+import ScatterTooltip from '@/components/ScatterTooltip'
+import type { AdherencePoint } from '@/components/ScatterTooltip'
 
 const topicColor: Record<string, string> = {
   hosting: 'var(--color-critical-500)',
   domains: 'var(--color-warning-500)',
   billing: 'var(--color-success-500)',
-}
-
-interface AdherencePoint {
-  agent: string
-  handleTime: number
-  adherence: number
-  topic: string
-}
-
-function ScatterTooltip({ active, payload }: { active?: boolean; payload?: { payload: AdherencePoint }[] }) {
-  if (!active || !payload?.length) return null
-  const d = payload[0].payload
-  return (
-    <div className="bg-surface border border-border rounded-lg shadow-lg px-3 py-2 text-xs">
-      <p className="font-semibold text-text capitalize">{d.topic} · adherence {d.adherence}%</p>
-      <p className="text-text-muted">Handle time {Math.floor(d.handleTime)}:{String(Math.round((d.handleTime % 1) * 60)).padStart(2, '0')}</p>
-    </div>
-  )
-}
-
-function CustomTooltip({ active, payload, label }: { active?: boolean; payload?: { value?: number }[]; label?: string }) {
-  if (!active || !payload?.length) return null
-  return (
-    <div className="bg-surface border border-border rounded-lg shadow-lg px-3 py-2 text-xs">
-      <p className="font-semibold text-text mb-0.5">Week {label?.replace('W', '')}</p>
-      <p className="text-brand">Nov cohort: {payload[0].value} min</p>
-      <p className="text-text-muted">Benchmark: {payload[1]?.value ?? '—'} min</p>
-    </div>
-  )
 }
 
 export interface CohortRampPoint {
@@ -60,7 +34,7 @@ export default function CohortRampCurve({ data }: { data: CohortRampCurveData })
         <LineChart data={data.cohortRamp} margin={{ top: 4, right: 12, left: -18, bottom: 0 }}>
           <XAxis dataKey="week" tick={{ fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} />
           <YAxis tick={{ fontSize: 10, fill: 'var(--color-text-subtle)' }} axisLine={false} tickLine={false} unit="m" />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<ChartTooltip />} />
           <Legend wrapperStyle={{ fontSize: 11 }} />
           <ReferenceLine y={9.5} stroke="var(--color-text-subtle)" strokeDasharray="4 4" label={{ value: 'Target 9:30', fontSize: 9, fill: 'var(--color-text-subtle)', position: 'insideBottomRight' }} />
           <Line type="monotone" dataKey="cohort" name="Cohort" stroke="var(--color-brand)" strokeWidth={2.5} dot={{ r: 3 }} />

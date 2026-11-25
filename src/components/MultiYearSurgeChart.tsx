@@ -1,23 +1,5 @@
 import { Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, Area, ComposedChart } from 'recharts'
-
-interface TooltipEntry {
-  dataKey?: string
-  name?: string
-  value?: number
-  color?: string
-}
-
-function CustomTooltip({ active, payload, label }: { active?: boolean; payload?: TooltipEntry[]; label?: string }) {
-  if (!active || !payload?.length) return null
-  return (
-    <div className="bg-surface border border-border rounded-lg shadow-lg px-3 py-2 text-xs">
-      <p className="font-semibold text-text mb-0.5">{label}</p>
-      {payload.map(p => (
-        <p key={p.dataKey} style={{ color: p.color }}>{p.name}: {p.value}</p>
-      ))}
-    </div>
-  )
-}
+import ChartTooltip from '@/components/ChartTooltip'
 
 export interface SurgeDataPoint {
   week: string
@@ -43,7 +25,7 @@ export default function MultiYearSurgeChart({ data }: { data: MultiYearSurgeChar
         <ComposedChart data={data.surgeOverlay} margin={{ top: 4, right: 12, left: -18, bottom: 0 }}>
           <XAxis dataKey="week" tick={{ fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} />
           <YAxis tick={{ fontSize: 10, fill: 'var(--color-text-subtle)' }} axisLine={false} tickLine={false} />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<ChartTooltip />} />
           <Legend wrapperStyle={{ fontSize: 10 }} />
           <Area type="monotone" dataKey="capacity" name="Staffing capacity" stroke="var(--color-text-subtle)" fill="var(--color-border)" fillOpacity={0.5} strokeDasharray="4 4" />
           <Line type="monotone" dataKey="y2023" name="2023" stroke="var(--color-border)" strokeWidth={1.5} dot={false} />

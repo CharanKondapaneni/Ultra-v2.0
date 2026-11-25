@@ -14,6 +14,10 @@ const OVERRIDES: Record<string, string> = {
   nfcu_platform_admin:  'platform-admin',
   newfold_director:     'marisol',
   newfold_ops:          'sofia',
+  aramco_complex_manager:  'connor',
+  aramco_hse_gm:           'gina',
+  aramco_permit_issuer:    'penny',
+  aramco_shift_supervisor: 'sally',
 }
 
 export function resolvePersona(id: string): string {

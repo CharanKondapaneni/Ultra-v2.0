@@ -1,23 +1,10 @@
+import BudgetBar from '@/components/BudgetBar'
+
 const slColor = (sl: string) => {
   const v = parseInt(sl)
   if (v >= 80) return 'text-success-600'
   if (v >= 75) return 'text-warning-600'
   return 'text-critical-600'
-}
-
-function BudgetBar({ pct }: { pct: string }) {
-  const v = parseInt(pct)
-  return (
-    <div className="flex items-center gap-2">
-      <div className="flex-1 bg-surface-2 rounded-full h-1.5 overflow-hidden">
-        <div
-          className={`h-full rounded-full ${v >= 95 ? 'bg-critical-400' : v >= 85 ? 'bg-warning-400' : 'bg-success-400'}`}
-          style={{ width: pct }}
-        />
-      </div>
-      <span className={`text-[10px] font-bold ${v >= 95 ? 'text-critical-600' : v >= 85 ? 'text-warning-600' : 'text-success-600'}`}>{pct}</span>
-    </div>
-  )
 }
 
 export interface StaffingScenario {

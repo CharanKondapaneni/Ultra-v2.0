@@ -30,10 +30,21 @@ import DanaAskPage          from './clients/rshs/dana/AskPage'
 import DanaDataSourcesPage  from './clients/rshs/dana/DataSourcesPage'
 
 // newfold-digital pages
-import MarisolDataSourcesPage   from './clients/newfold-digital/marisol/DataSourcesPage'
-import MarisolQualitySignalsPage from './clients/newfold-digital/marisol/QualitySignalsPage'
-import SofiaDataSourcesPage     from './clients/newfold-digital/sofia/DataSourcesPage'
-import SofiaQualitySignalsPage  from './clients/newfold-digital/sofia/QualitySignalsPage'
+import MarisolAskPage                  from './clients/newfold-digital/marisol/AskPage'
+import MarisolDataSourcesPage          from './clients/newfold-digital/marisol/DataSourcesPage'
+import MarisolQualitySignalsPage        from './clients/newfold-digital/marisol/QualitySignalsPage'
+import MarisolWorkforceIntelligencePage from './clients/newfold-digital/marisol/WorkforceIntelligencePage'
+import SofiaAskPage                    from './clients/newfold-digital/sofia/AskPage'
+import SofiaDataSourcesPage            from './clients/newfold-digital/sofia/DataSourcesPage'
+import SofiaQualitySignalsPage         from './clients/newfold-digital/sofia/QualitySignalsPage'
+import SofiaWorkforceIntelligencePage  from './clients/newfold-digital/sofia/WorkforceIntelligencePage'
+
+// aramco pages
+import ConnorDataSourcesPage  from './clients/aramco/connor/DataSourcesPage'
+import ConnorMusterStatusPage  from './clients/aramco/connor/MusterStatusPage'
+import GinaDataSourcesPage   from './clients/aramco/gina/DataSourcesPage'
+import SallyDataSourcesPage  from './clients/aramco/sally/DataSourcesPage'
+import PennyDataSourcesPage  from './clients/aramco/penny/DataSourcesPage'
 
 // nfcu pages — add imports here as pages are built with /build-page
 
@@ -108,12 +119,32 @@ const registry: PageRegistry = {
 
   newfold_digital: {
     marisol: {
-      '/data-sources':    MarisolDataSourcesPage,
-      '/quality-signals': MarisolQualitySignalsPage,
+      '/ask':                      MarisolAskPage,
+      '/data-sources':             MarisolDataSourcesPage,
+      '/quality-signals':          MarisolQualitySignalsPage,
+      '/workforce-intelligence':   MarisolWorkforceIntelligencePage,
     },
     sofia: {
-      '/data-sources':    SofiaDataSourcesPage,
-      '/quality-signals': SofiaQualitySignalsPage,
+      '/ask':                      SofiaAskPage,
+      '/data-sources':             SofiaDataSourcesPage,
+      '/quality-signals':          SofiaQualitySignalsPage,
+      '/workforce-intelligence':   SofiaWorkforceIntelligencePage,
+    },
+  },
+
+  aramco: {
+    connor: {
+      '/data-sources':   ConnorDataSourcesPage,
+      '/muster-status':  ConnorMusterStatusPage,
+    },
+    gina: {
+      '/data-sources': GinaDataSourcesPage,
+    },
+    sally: {
+      '/data-sources': SallyDataSourcesPage,
+    },
+    penny: {
+      '/data-sources': PennyDataSourcesPage,
     },
   },
 
